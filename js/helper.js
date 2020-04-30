@@ -14,10 +14,11 @@
 
     function randomID() {
         let rand = Math.floor(Math.random() * 5 + 1);
-        if (window.location.href.substring(32) !== rand) {
-            findID("random_link").href = "entry.html?id=" + rand;
-        } else {
+        console.log("current page = "+window.location.href.substring(32));
+        if (window.location.href.substring(32) === rand) {
             randomID();
+        } else {
+            findID("random_link").href = "entry.html?id=" + rand;
         }
     }
 
