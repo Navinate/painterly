@@ -25,10 +25,12 @@
         if (pair[0] == variable)
         { 
           console.log("Loading image: "+pair[1]);
-          fillInfo(pair[1]); 
+          fillInfo(pair[1]);
+          return 1; 
         } 
       }
-      console.log("Failed to load image data."); 
+      console.log("Failed to load image data.");
+      return -1; 
     }
 
     function fillInfo(id) {
@@ -44,7 +46,7 @@
     });
 
       art.src = "../art/paint"+id+".jpg";
-      title.innerHTML = "title %$#@!";
+      title.innerHTML = "title 1";
     }
 
 })();
