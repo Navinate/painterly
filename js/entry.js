@@ -35,7 +35,7 @@
     }
 
     function getInfo(id) {
-      $.get(id+".json", function(data, status) {
+      $.get("../art/"+id+".json", function(data, status) {
         alert(data);
       })
     }
