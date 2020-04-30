@@ -8,13 +8,20 @@
 
     "use strict";
     window.addEventListener("load", initialize);
-
+    let id;
     /**
      * Contains all of the eventListeners for interactivity.
      */
     function initialize() {  
-    getQueryVariable("id"); 
+    getQueryVariable("id");
+    fillData(); 
     }
+    
+    function fillData() {
+      fillInfo("title");
+    }
+
+
 
     function getQueryVariable(variable) { 
       var query = window.location.search.substring(1); 
@@ -24,33 +31,22 @@
         var pair = vars[i].split("="); 
         if (pair[0] == variable)
         { 
-          console.log("Loading image: "+pair[1]);
-          fillInfo(pair[1]);
+          console.log("Loading data: "+pair[1]);
+          id = pair[1];
           return 1; 
         } 
       }
-      console.log("Failed to load image data.");
+      console.log("Failed to load data.");
       return -1; 
     }
-    let info;
-    function fillInfo(id) {
-      let art = document.getElementById("art");
-      let title = document.getElementById("title");
-      let artist = document.getElementById("artist");
-      let date = document.getElementById("date");
-      let width = document.getElementById("width");
-      let height = document.getElementById("height");
-      let description = document.getElementById("description");
 
-      art.src = "../art/paint"+id+".jpg";
-      title.innerHTML = "title 1";
-      artist.innerHTML = "artist 1";
-
-      let info = localStorage.getItem("../art/1.json");
-      let obj = JSON.parse(info);
-      console.log(obj);
-
-      
+    function fillInfo(element) {
+      $.get("entry.php", function(data, status) {
+        $(element).html(data);
+        alert(status);
+      })
     }
+
+   
 
 })();
