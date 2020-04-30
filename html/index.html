@@ -1,25 +1,78 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Painterly</title>
-        <link rel="stylesheet" type="text/css" href="css/home.css">
-        <script src="js/home.js"></script>
-        <meta charset="UTF-8">
-    </head>
-    <body>
-        <header>
-            <h1>Painterly</h1>
-            <nav>
-                <ul>
-                    <li id="gallery"><a href="/html/gallery.html">Gallery</a></li>
-                    <li id="random"><a href="/html/random.html">Random</a></li>
-                    <li id="submit"><a href="/html/submit.html">Submit Art</a></li>
-                    <li id="about"><a href="/html/about.html">About Us</a></li>
-                </ul>
-            </nav>
-        </header>
-        <main>
-            <img src="assets/Gallery.png" alt="image of what the gallery is gonna look like">
-        </main>
-    </body>
+<head>
+	<meta charset="UTF-8">
+	<title>MS Painterly</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+	<header>
+		<img id="logo" src="assets/logo.png">
+		<!-- <h1>PAINTERLY</h1> -->
+		<nav id="buttons">
+			<ul>
+				<li id="random"><a>Random</a></li>
+				<li id="gallery"><a href="index.html">Gallery</a></li>
+				<li id="about"><a href="about.html">About</a></li>
+			</ul>
+		</nav> <!-- buttons -->
+	</header>
+	<main> <!-- to be auto-filled -->
+		<div class="responsive">
+			<div class="gallery">
+				<a href="entry.html?id=1">
+					<img src="assets/paint1.jpg">
+				</a>
+				<div class="info">
+					<h2>Artwork Title</h2>
+					<p>By Artist</p>
+				</div>
+			</div> <!-- gallery -->
+		</div> <!-- responsive -->
+		<div class="responsive">
+			<div class="gallery">
+				<a href="entry.html">
+					<img src="assets/paint2.jpg">
+				</a>
+				<div class="info">
+					<h2>Artwork Title</h2>
+					<p>By Artist</p>
+				</div>
+			</div> <!-- gallery -->
+		</div> <!-- responsive -->
+		<div class="responsive">
+			<div class="gallery">
+				<a href="entry.html">
+					<img src="assets/paint3.jpg">
+				</a>
+				<div class="info">
+					<h2>Artwork Title</h2>
+					<p>By Artist</p>
+				</div>
+			</div> <!-- gallery -->
+		</div> <!-- responsive -->
+		<div class="responsive">
+			<div class="gallery">
+				<a href="entry.html">
+					<img src="assets/paint4.png">
+				</a>
+				<div class="info">
+					<h2>Artwork Title</h2>
+					<p>By Artist</p>
+				</div>
+			</div> <!-- gallery -->
+		</div> <!-- responsive -->
+		<div class="responsive">
+			<div class="gallery">
+				<a href="entry.html">
+					<img src="assets/paint5.jpg">
+				</a>
+				<div class="info">
+					<h2>Artwork Title</h2>
+					<p>By Artist</p>
+				</div>
+			</div> <!-- gallery -->
+		</div> <!-- responsive -->
+	</main>
+</body>
 </html>
