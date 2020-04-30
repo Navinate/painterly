@@ -32,21 +32,26 @@
       console.log("Failed to load image data.");
       return -1; 
     }
-
+    let info;
     function fillInfo(id) {
-      let art = $("art");
+      let art = document.getElementById("art");
       let title = $("title");
       let artist = $("artist");
       let date = $("date");
       let width = $("width");
       let height = $("height");
       let description = $("description");
-      $.getJSON("../art/1.json", function(json) {
-        console.log(json); // this will show the info it in firebug console
-    });
 
       art.src = "../art/paint"+id+".jpg";
       title.innerHTML = "title 1";
+
+      $.getJSON("../art/1.json", function(json) {
+        info = json // this will show the info it in firebug console
+      });
+
+      console.log(info);
+
+      
     }
 
 })();
