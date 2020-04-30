@@ -8,17 +8,11 @@
 
     "use strict";
     window.addEventListener("load", initialize);
-    let id;
     /**
      * Contains all of the eventListeners for interactivity.
      */
     function initialize() {  
-    getQueryVariable("id");
-    fillData(); 
-    }
-    
-    function fillData() {
-      fillInfo("title");
+    getQueryVariable("id"); 
     }
 
 
@@ -32,7 +26,7 @@
         if (pair[0] == variable)
         { 
           console.log("Loading data: "+pair[1]);
-          id = pair[1];
+          getInfo(pair[1]);
           return 1; 
         } 
       }
@@ -40,10 +34,9 @@
       return -1; 
     }
 
-    function fillInfo(element) {
-      $.get("entry.php", function(data, status) {
-        $(element).html(data);
-        alert(status);
+    function getInfo(id) {
+      $.get("../entry.php?id="+id, function(data, status) {
+        alert(data);
       })
     }
 
