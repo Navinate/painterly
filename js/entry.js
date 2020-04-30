@@ -35,7 +35,7 @@
     }
 
     function fillInfo(id) {
-      findID("art").src = "../art/paint"+id+".png";
+      findID("art").src = "art/paint"+id+".png";
       $.get("../art/"+id+".json", function(data, status) {
         console.log("Retrivial status: "+status);
         findID("title").innerHTML = data.title;
