@@ -47,9 +47,6 @@
       })
     }
 
-    function findID(arg) {
-      return document.getElementById(arg);
-    }
 
    
 
