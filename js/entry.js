@@ -26,7 +26,7 @@
         if (pair[0] == variable)
         { 
           console.log("Loading data: "+pair[1]);
-          getInfo(pair[1]);
+          fillInfo(pair[1]);
           return 1; 
         } 
       }
@@ -34,10 +34,21 @@
       return -1; 
     }
 
-    function getInfo(id) {
+    function fillInfo(id) {
+      findID("art").src = "../art/paint"+id+".png";
       $.get("../art/"+id+".json", function(data, status) {
-        alert(data);
+        console.log("Retrivial status: "+status);
+        findID("title").innerHTML = data.title;
+        findID("artist").innerHTML = data.artist;
+        findID("upload_date").innerHTML = data.date;
+        findID("width").innerHTML = data.width;
+        findID("height").innerHTML = data.height;
+        findID("description").innerHTML = data.description;
       })
+    }
+
+    function findID(arg) {
+      return document.getElementById(arg);
     }
 
    
