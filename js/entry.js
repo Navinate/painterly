@@ -35,7 +35,7 @@
     }
 
     function getInfo(id) {
-      $.get("../entry.php?id="+id, function(data, status) {
+      $.get(id+".json", function(data, status) {
         alert(data);
       })
     }
