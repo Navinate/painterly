@@ -6,16 +6,16 @@
     /**
      * Contains all of the eventListeners for interactivity.
      */
-    function initialize() {  
-        if(findID("random") !== null) {
+    function initialize() {
+        if (findID("random") !== null) {
             randomID();
-        } 
+        }
     }
 
     function randomID() {
-        let rand = Math.floor(Math.random()*5 + 1);
-        if(window.location.href.substring(32) !== rand) {
-        findID("random_link").href = "entry.html?id="+rand;
+        let rand = Math.floor(Math.random() * 5 + 1);
+        if (window.location.href.substring(32) !== rand) {
+            findID("random_link").href = "entry.html?id=" + rand;
         } else {
             randomID();
         }
@@ -25,4 +25,5 @@
         return document.getElementById(arg);
     }
 
-})();
+}
+)();
