@@ -24,14 +24,27 @@
         var pair = vars[i].split("="); 
         if (pair[0] == variable)
         { 
-          console.log(pair[1]);
-
-          return pair[1]; 
+          console.log("Loading image: "+pair[1]);
+          fillInfo(pair[1]); 
         } 
       }
-      return -1; //not found 
+      console.log("Failed to load image data."); 
     }
 
+    function fillInfo(id) {
+      let art = $("art");
+      let title = $("title");
+      let artist = $("artist");
+      let date = $("date");
+      let width = $("width");
+      let height = $("height");
+      let description = $("description");
+      $.getJSON("../art/1.json", function(json) {
+        console.log(json); // this will show the info it in firebug console
+    });
 
+      art.src = "../art/paint"+id+".jpg";
+      title.innerHTML = "title %$#@!";
+    }
 
 })();
