@@ -11,7 +11,7 @@
     }
 
     function insertArt(num) {
-        let main = document.querySelector("main");
+        let main = document.getElementById("gallery-main");
         for (let i = 1; i <= num; i++) {
             let resp = document.createElement("div");
             resp.classList.add("responsive");

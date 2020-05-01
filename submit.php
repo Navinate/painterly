@@ -60,6 +60,7 @@ if ($uploadOk == 0) {
 
 
 ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -85,20 +86,22 @@ if ($uploadOk == 0) {
 	<div class="main">
 		<h1 id="instruct">Submit your own art for manual review to be added to the site!</h1>
 		<form action="" method="post" enctype="multipart/form-data">
-			<input type="file" name="fileToUpload" id="fileToUpload"><br/><br/>
-			<label for="title">Title:</label><br/>
-			<input type="text" id="title" name="title"><br/>
-			<label for="artist">Artist:</label><br/>
-			<input type="text" id="artist" name="artist"><br/>
-			<label for="date">Date:</label><br/>
-			<input type="text" id="date" name="date"><br/>
-			<label for="width">Width:</label><br/>
-			<input type="text" id="width" name="width"><br/>
-			<label for="height">Height:</label><br/>
-			<input type="text" id="height" name="height"><br/>
-			<label for="desc">Description:</label><br/>
-			<input type="text" id="desc" name="desc"><br/><br/>
-			<input type="submit" value="Upload Image" name="submit">
+			<fieldset>
+				<input type="file" name="fileToUpload" id="fileToUpload"/><br/><br/>
+				<label for="title">Title:</label><br/>
+				<input type="text" id="title" name="title"/><br/>
+				<label for="artist">Artist:</label><br/>
+				<input type="text" id="artist" name="artist"/><br/>
+				<label for="date">Date:</label><br/>
+				<input type="text" id="date" name="date"/><br/>
+				<label for="width">Width:</label><br/>
+				<input type="text" id="width" name="width"/><br/>
+				<label for="height">Height:</label><br/>
+				<input type="text" id="height" name="height"/><br/>
+				<label for="desc">Description:</label><br/>
+				<input type="text" id="desc" name="desc"/><br/><br/>
+				<input type="submit" value="Upload Image" name="submit"/>
+			</fieldset>
 		</form>
 		<h1><?php if(isset($_POST['submit'])){if ($uploadOk ==1 ) {echo $success; } else { print_r($errors[0]);}} ?></h1>
 	</div>
