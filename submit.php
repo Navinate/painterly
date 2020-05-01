@@ -31,10 +31,10 @@ if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg
 }
 
 
-$newfile = fopen(basename("uploads/" . pathinfo($target_file)['filename'] . "json", "w"));
+/* $newfile = fopen(basename("uploads/" . pathinfo($target_file)['filename'] . "json", "w"));
 $txt = "test test test test test test test test";
 fwrite($newfile, $txt);
-fclose($newfile);
+fclose($newfile); */
 
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
@@ -72,7 +72,7 @@ if ($uploadOk == 0) {
 	</header>
     <main> <!-- to be auto-filled -->
         <h1>Submit Your Own Art!</h1>
-        <form action="submit.php" method="post" enctype="multipart/form-data">
+        <form action="" method="post" enctype="multipart/form-data">
 			<input type="file" name="fileToUpload" id="fileToUpload"><br><br>
 			<label for="title">Title:</label><br>
 			<input type="text" id="title" name="title"><br>
