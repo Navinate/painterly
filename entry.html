@@ -1,34 +1,34 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>MS Painterly</title>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<script src="js/entry.js"></script>
-	<script src="js/helper.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/style.css"/>
+	<script type="text/javascript" src="js/entry.js"></script>
+	<script type="text/javascript" src="js/helper.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
-	<header>
-		<img id="logo" src="assets/logo.png" alt="painterly logo">
+	<div class="header">
+		<img id="logo" src="assets/logo.png" alt="painterly logo"/>
 		<!-- <h1>PAINTERLY</h1> -->
 		
-		<nav id="buttons">
+		<div class="nav" id="buttons">
 			<ul>
 				<li id="about"><a href="about.html">About</a></li>
 				<li id="submit"><a href="submit.php">Submit</a></li>
 				<li id="random"><a id="random_link" href="">Random</a></li>
 				<li id="gallery"><a href="index.html">Gallery</a></li>
 			</ul>
-		</nav> <!-- buttons -->
-	</header>
-	<main> <!-- to be auto-filled -->
-		<img id="art" src="assets/404.png" alt="404 image not found">
+		</div> <!-- buttons -->
+	</div>
+	<div class="main"> <!-- to be auto-filled -->
+		<img id="art" src="assets/404.png" alt="404 image not found"/>
 		<h3 id="title">Image Not Found</h3>
 		<p id="artist"></p>
 		<p id="upload_date"></p>
 		<p id="resolution"><span id="width"></span> x <span id="height"></span> px</p>
 		<p id="description"></p>
-	</main>
+	</div>
 </body>
 </html>

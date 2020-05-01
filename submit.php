@@ -60,31 +60,31 @@ if ($uploadOk == 0) {
 
 
 ?>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>MS Painterly</title>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<script src="js/helper.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/style.css"/>
+	<script type="text/javascript" src="js/helper.js"></script>
 </head>
 <body>
-	<header>
-		<img id="logo" src="assets/logo.png" alt="painterly logo">
+	<div class="header">
+		<img id="logo" src="assets/logo.png" alt="painterly logo"/>
 		
 
-		<nav id="buttons">
+		<div class="nav" id="buttons">
 			<ul>
 				<li id="about"><a href="about.html">About</a></li>
 				<li id="submit"><a href="submit.php">Submit</a></li>
 				<li id="random"><a id="random_link" href="">Random</a></li>
 				<li id="gallery"><a href="index.html">Gallery</a></li>
 			</ul>
-		</nav> <!-- buttons -->
+		</div> <!-- buttons -->
 
-	</header>
-    <main>
-        <h1 id="instruct">Submit your own art for manual review to be added to the site!</h1>
-        <form action="" method="post" enctype="multipart/form-data">
+	</div>
+	<div class="main">
+		<h1 id="instruct">Submit your own art for manual review to be added to the site!</h1>
+		<form action="" method="post" enctype="multipart/form-data">
 			<input type="file" name="fileToUpload" id="fileToUpload"><br><br>
 			<label for="title">Title:</label><br>
 			<input type="text" id="title" name="title"><br>
@@ -99,8 +99,8 @@ if ($uploadOk == 0) {
 			<label for="desc">Description:</label><br>
 			<input type="text" id="desc" name="desc"><br><br>
 			<input type="submit" value="Upload Image" name="submit">
-        </form>
-        <h1><?php if(isset($_POST['submit'])){if ($uploadOk ==1 ) {echo $success; } else { print_r($errors[0]);}} ?></h1>
-	</main>
+		</form>
+		<h1><?php if(isset($_POST['submit'])){if ($uploadOk ==1 ) {echo $success; } else { print_r($errors[0]);}} ?></h1>
+	</div>
 </body>
 </html>
