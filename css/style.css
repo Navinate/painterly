@@ -79,7 +79,6 @@ h3 {
 }
 
 main img {
-	/*height: auto;*/
 	margin: 8vmin;
 	border: 2px solid dodgerblue;
 	border-radius: 4px;
@@ -107,14 +106,18 @@ form {
 
 .bio {
 	width: 50vw;
-	
+	display: inline-block;
+}
+
+.bio-container {
+	width: 100%;
+	text-align: center;
 }
 @media only screen and (max-width: 600px) {
 	#instruct {
 		font-size: 8vmin;
 	}
 	.bio {
-	  width: 90vw;
-	  background-color: blue;
+	  width: 90vw; 
 	}
-  }
+}
