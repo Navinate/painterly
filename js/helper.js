@@ -14,7 +14,6 @@
 
     function randomID() {
         let rand = Math.floor(Math.random() * 11 + 1);
-        console.log("current page = "+window.location.href.substring(32));
         if (window.location.href.substring(32) === rand) {
             randomID();
         } else {
