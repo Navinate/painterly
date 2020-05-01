@@ -7,7 +7,7 @@
      * Contains all of the eventListeners for interactivity.
      */
     function initialize() {  
-        insertArt(11);
+        insertArt(12);
     }
 
     function insertArt(num) {
