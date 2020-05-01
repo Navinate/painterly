@@ -7,7 +7,6 @@ $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 if(isset($_POST["submit"])) {
     $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
     if($check !== false) {
-        echo "File is an image - " . $check["mime"] . ".";
         $uploadOk = 1;
     } else {
         echo "File is not an image.";
@@ -29,15 +28,65 @@ if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg
     echo "Sorry, only JPG, JPEG, and PNG files are allowed.";
     $uploadOk = 0;
 }
+
+
+$newfile = fopen(basename("uploads/" . pathinfo($target_file)['filename'] . "json", "w"));
+$txt = "test test test test test test test test";
+fwrite($newfile, $txt);
+fclose($newfile);
+
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
     echo "Sorry, your file was not uploaded.";
 // if everything is ok, try to upload file
 } else {
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-        echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+        echo "Your submision has been Recieved";
     } else {
-        echo "Sorry, there was an error uploading your file.";
+        echo "There was a problem with your submission, please try again.";
     }
 }
 ?>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>MS Painterly</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+	<header>
+		<img id="logo" src="assets/logo.png">
+		<!-- <h1>PAINTERLY</h1> -->
+
+		<nav id="buttons">
+			<ul>
+				<li id="about"><a href="about.html">About</a></li>
+				<li id="submit"><a href="submit.html">Submit</a></li>
+				<li id="random"><a id="random_link" href="">Random</a></li>
+				<li id="gallery"><a href="index.html">Gallery</a></li>
+			</ul>
+		</nav> <!-- buttons -->
+
+	</header>
+    <main> <!-- to be auto-filled -->
+        <h1>Submit Your Own Art!</h1>
+        <form action="submit.php" method="post" enctype="multipart/form-data">
+			<input type="file" name="fileToUpload" id="fileToUpload"><br><br>
+			<label for="title">Title:</label><br>
+			<input type="text" id="title" name="title"><br>
+			<label for="artist">Artist:</label><br>
+			<input type="text" id="artist" name="artist"><br>
+			<label for="date">Date:</label><br>
+			<input type="text" id="date" name="date"><br>
+			<label for="width">Width:</label><br>
+			<input type="text" id="width" name="width"><br>
+			<label for="height">Height:</label><br>
+			<input type="text" id="height" name="height"><br>
+			<label for="desc">Description:</label><br>
+			<input type="text" id="desc" name="desc"><br><br>
+			<input type="submit" value="Upload Image" name="submit">
+		</form>
+	</main>
+</body>
+</html>
