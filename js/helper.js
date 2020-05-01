@@ -13,7 +13,7 @@
     }
 
     function randomID() {
-        let rand = Math.floor(Math.random() * 11 + 1);
+        let rand = Math.floor(Math.random() * 12 + 1);
         if (window.location.href.substring(32) === rand) {
             randomID();
         } else {

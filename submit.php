@@ -70,6 +70,7 @@ if ($uploadOk == 0) {
 	<meta charset="UTF-8">
 	<title>MS Painterly</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script src="js/helper.js"></script>
 </head>
 <body>
 	<header>
@@ -79,7 +80,7 @@ if ($uploadOk == 0) {
 		<nav id="buttons">
 			<ul>
 				<li id="about"><a href="about.html">About</a></li>
-				<li id="submit"><a href="submit.html">Submit</a></li>
+				<li id="submit"><a href="submit.php">Submit</a></li>
 				<li id="random"><a id="random_link" href="">Random</a></li>
 				<li id="gallery"><a href="index.html">Gallery</a></li>
 			</ul>

@@ -7,7 +7,7 @@
      * Contains all of the eventListeners for interactivity.
      */
     function initialize() {  
-        insertArt(12);
+        insertArt(13);
     }
 
     function insertArt(num) {
@@ -26,7 +26,7 @@
             info.classList.add("info");
             $.get("../art/" + i + ".json", function(data, status) {
                 console.log("Retrivial status: " + status);
-                info.innerHTML = "<h2>Title: "+data.title+"</h2><p>By: "+data.artist+"</p>"
+                info.innerHTML = "<h2>"+data.title+"</h2><p>By: "+data.artist+"</p>"
             })
             gallery.appendChild(link);
             gallery.appendChild(info);
