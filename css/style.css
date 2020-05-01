@@ -49,7 +49,7 @@ li a:hover {
 	height: 8vmin;
 }
 
-#gallery-main {
+.main {
 	text-align: center;
 	font-size: 14px;
 	line-height: 20px;
@@ -115,6 +115,7 @@ form {
 	width: 100%;
 	text-align: center;
 }
+
 @media only screen and (max-width: 600px) {
 	#instruct {
 		font-size: 8vmin;
