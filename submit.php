@@ -12,7 +12,28 @@ if(isset($_POST["submit"])) {
     } else {
         $errors[]="File is not an image.";
         $uploadOk = 0;
-    }
+	}
+	//reading form data and creating a json object from it
+	if(isset($_POST["title"]) == false) {
+		$missing_title = " <- Please enter a title";
+	} else if (isset($_POST["artist"]) == false) {
+		$missing_artist = " <- Please enter an artist";
+	} else if (isset($_POST["date"]) == false) {
+		$missing_date = " <- Please enter a date";
+	} else if (isset($_POST["width"]) == false) {
+		$missing_width = " <- Please enter a width";
+	} else if (isset($_POST["height"]) == false) {
+		$missing_height = " <- Please enter a height";
+	} else if (isset($_POST["desc"]) == false) {
+		$missing_desc = " <- Please enter a description";
+		// once its determined there are no missing fields, create json file
+	} else {
+		$newfile = "uploads/" . basename(pathinfo($target_file)['filename']) . ".json";
+		echo(basename(pathinfo($target_file)['filename']));
+		$handle = fopen($newfile, 'w') or die('Cannot open file:  '.$newfile);
+		$data = "{\"title\":".$_POST["title"].",\"artist\":".$_POST["artist"].",\"date\":".$_POST["date"].",\"width\":".$_POST["width"].",\"height\":".$_POST["height"].",\"description\":".$_POST["desc"].",}";
+		fwrite($handle, $data);
+	}
 }
 // Check if file already exists
 if (file_exists($target_file) && $uploadOk == 1) {
@@ -43,27 +64,7 @@ if ($uploadOk == 0) {
     }
 }
 
-if (isset($_POST["submit"])) {
-	if(isset($_POST["title"]) == false) {
-		$missing_title = " <- Please enter a title";
-	} else if (isset($_POST["artist"]) == false) {
-		$missing_artist = " <- Please enter an artist";
-	} else if (isset($_POST["date"]) == false) {
-		$missing_date = " <- Please enter a date";
-	} else if (isset($_POST["width"]) == false) {
-		$missing_width = " <- Please enter a width";
-	} else if (isset($_POST["height"]) == false) {
-		$missing_height = " <- Please enter a height";
-	} else if (isset($_POST["desc"]) == false) {
-		$missing_desc = " <- Please enter a description";
-	} else {
-		$newfile = "uploads/test.json";// . basename(pathinfo($target_file)['filename']) . ".json";
-		echo($newfile);
-		$handle = fopen($newfile, 'w') or die('Cannot open file:  '.$newfile);
-		$data = "{\"title\":".$_POST["title"].",\"artist\":".$_POST["artist"].",\"date\":".$_POST["date"].",\"width\":".$_POST["width"].",\"height\":".$_POST["height"].",\"description\":".$_POST["desc"].",}";
-		fwrite($handle, $data);
-	}
-}
+
 ?>
 <html>
 <head>
