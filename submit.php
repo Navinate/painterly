@@ -1,4 +1,5 @@
 <?php
+$errors = array();
 $target_dir = "uploads/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
@@ -9,23 +10,23 @@ if(isset($_POST["submit"])) {
     if($check !== false) {
         $uploadOk = 1;
     } else {
-        $errors="File is not an image.";
+        $errors[]="File is not an image.";
         $uploadOk = 0;
     }
 }
 // Check if file already exists
 if (file_exists($target_file) && $uploadOk == 1) {
-    $errors="Sorry, file already exists.";
+    $errors[]="Sorry, file already exists.";
     $uploadOk = 0;
 }
 // Check file size
 if ($_FILES["fileToUpload"]["size"] > 500000 && $uploadOk == 1) {
-    $errors="Sorry, your file is too large.";
+    $errors[]="Sorry, your file is too large.";
     $uploadOk = 0;
 }
 // Allow certain file formats
 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $uploadOk == 1) {
-    $errors="Sorry, only JPG, JPEG, and PNG files are allowed.";
+    $errors[]="Sorry, only JPG, JPEG, and PNG files are allowed.";
     $uploadOk = 0;
 }
 
@@ -37,13 +38,13 @@ fclose($newfile); */
 
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
-    $errors="Sorry, your file was not uploaded.";
+    $errors[]="Sorry, your file was not uploaded.";
 // if everything is ok, try to upload file
 } else {
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
         $success = "Your submission has been recieved";
     } else {
-        $errors="There was a problem with your submission, please try again.";
+        $errors[]="There was a problem with your submission, please try again.";
         
     }
 }
