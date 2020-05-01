@@ -98,3 +98,11 @@ div.info {
 	padding: 0;
 	margin: 0;
 }
+.bio {
+	width: 50vw;
+}
+@media only screen and (max-width: 600px) {
+	.bio {
+	  width: 90vw;
+	}
+  }
