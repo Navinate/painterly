@@ -11,7 +11,7 @@ body {
 	text-align: center;
 }
 
-header {
+.header {
 	width: 100%;
 	overflow: hidden;
 	background-color: lightblue;
@@ -44,12 +44,12 @@ li a:hover {
 	background-color: darkblue;
 }
 
-header img {
+.header img {
 	float: left;
 	height: 8vmin;
 }
 
-#gallery-main {
+.main {
 	text-align: center;
 	font-size: 14px;
 	line-height: 20px;
@@ -79,7 +79,7 @@ h3 {
 	margin: 10px;
 }
 
-main img {
+div.main img {
 	margin: 8vmin;
 	border: 2px solid dodgerblue;
 	border-radius: 4px;
@@ -115,6 +115,7 @@ form {
 	width: 100%;
 	text-align: center;
 }
+
 @media only screen and (max-width: 600px) {
 	#instruct {
 		font-size: 8vmin;
