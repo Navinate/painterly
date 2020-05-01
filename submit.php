@@ -45,7 +45,7 @@ if ($uploadOk == 0) {
         $success = "Your submission has been recieved";
     } else {
         $errors[]="There was a problem with your submission, please try again.";
-        echo ($errors);
+        print_r($errors);
     }
 }
 ?>
