@@ -21,13 +21,15 @@
             link.href = "entry.html?id="+i;
             let image = document.createElement("img");
             image.src = "art/paint"+i+".png";
-            link.appendChild(image);
+            
             let info = document.createElement("div");
             info.classList.add("info");
             $.get("../art/" + i + ".json", function(data, status) {
                 console.log("Retrivial status: " + status);
-                info.innerHTML = "<h2>"+data.title+"</h2><p>By: "+data.artist+"</p>"
+                info.innerHTML = "<h2>"+data.title+"</h2><p>By: "+data.artist+"</p>";
+                link.alt = data.description;
             })
+            link.appendChild(image);
             gallery.appendChild(link);
             gallery.appendChild(info);
             resp.appendChild(gallery);

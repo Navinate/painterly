@@ -74,8 +74,8 @@ if ($uploadOk == 0) {
 </head>
 <body>
 	<header>
-		<img id="logo" src="assets/logo.png">
-		<!-- <h1>PAINTERLY</h1> -->
+		<img id="logo" src="assets/logo.png" alt="painterly logo">
+		
 
 		<nav id="buttons">
 			<ul>

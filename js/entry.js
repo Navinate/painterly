@@ -34,6 +34,7 @@
           findID("width").innerHTML = data.width;
           findID("height").innerHTML = data.height;
           findID("description").innerHTML = data.description;
+          findID("art").alt = data.description;
       })
   }
 
