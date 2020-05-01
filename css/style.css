@@ -11,7 +11,7 @@ body {
 	text-align: center;
 }
 
-header {
+.header {
 	width: 100%;
 	overflow: hidden;
 	background-color: lightblue;
@@ -44,7 +44,7 @@ li a:hover {
 	background-color: darkblue;
 }
 
-header img {
+.header img {
 	float: left;
 	height: 8vmin;
 }
@@ -79,7 +79,7 @@ h3 {
 	margin: 10px;
 }
 
-main img {
+.main img {
 	margin: 8vmin;
 	border: 2px solid dodgerblue;
 	border-radius: 4px;
