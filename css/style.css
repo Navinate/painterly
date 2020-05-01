@@ -37,6 +37,7 @@ li a {
 	font-size: 3vmin;
 	line-height: 3vmin;
 	border-radius: 2vmin;
+	transition-duration: 0.3s;
 }
 
 li a:hover {
