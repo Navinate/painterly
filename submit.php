@@ -1,5 +1,5 @@
 <?php
-$errors= "";
+$errors= array();
 $target_dir = "uploads/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
@@ -15,37 +15,37 @@ if(isset($_POST["submit"])) {
     }
 }
 // Check if file already exists
-if (file_exists($target_file) && $uploadOk == 1) {
-    $errors="Sorry, file already exists.";
+if (file_exists($target_file)) {
+    $errors[]="Sorry, file already exists.";
     $uploadOk = 0;
 }
 // Check file size
-if ($_FILES["fileToUpload"]["size"] > 500000  && $uploadOk == 1) {
-    $errors="Sorry, your file is too large.";
+if ($_FILES["fileToUpload"]["size"] > 500000) {
+    $errors[]="Sorry, your file is too large.";
     $uploadOk = 0;
 }
 // Allow certain file formats
-if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"  && $uploadOk == 1) {
-    $errors="Sorry, only JPG, JPEG, and PNG files are allowed.";
+if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
+    $errors[]="Sorry, only JPG, JPEG, and PNG files are allowed.";
     $uploadOk = 0;
 }
 
 
-/* $newfile = fopen(basename("uploads/" . pathinfo($target_file)['filename'] . "json", "w"));
+$newfile = fopen(basename("uploads/" . pathinfo($target_file)['filename'] . "json", "w"));
 $txt = "test test test test test test test test";
 fwrite($newfile, $txt);
-fclose($newfile); */
-/* HEY DOTHIS TRYEJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ*/
+fclose($newfile);
 
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
-    $errors="Sorry, your file was not uploaded.";
+    $errors[]="Sorry, your file was not uploaded.";
 // if everything is ok, try to upload file
 } else {
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
         $success = "Your submission has been recieved";
     } else {
-        $errors="There was a problem with your submission, please try again.";
+        $errors[]="There was a problem with your submission, please try again.";
+        echo ($errors);
     }
 }
 ?>
@@ -54,7 +54,6 @@ if ($uploadOk == 0) {
 	<meta charset="UTF-8">
 	<title>MS Painterly</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
 	<header>
@@ -90,7 +89,6 @@ if ($uploadOk == 0) {
 			<input type="submit" value="Upload Image" name="submit">
         </form>
         <h1><?php echo $success ?></h1>
-        <h1 color="red"><?php print_r($errors)?></h1>
 	</main>
 </body>
 </html>
