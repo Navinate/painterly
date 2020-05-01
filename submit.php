@@ -1,4 +1,5 @@
 <?php
+$errors= "";
 $target_dir = "uploads/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
@@ -9,41 +10,42 @@ if(isset($_POST["submit"])) {
     if($check !== false) {
         $uploadOk = 1;
     } else {
-        echo "File is not an image.";
+        $errors[]="File is not an image.";
         $uploadOk = 0;
     }
 }
 // Check if file already exists
-if (file_exists($target_file)) {
-    echo "Sorry, file already exists.";
+if (file_exists($target_file) && $uploadOk == 1) {
+    $errors="Sorry, file already exists.";
     $uploadOk = 0;
 }
 // Check file size
-if ($_FILES["fileToUpload"]["size"] > 500000) {
-    echo "Sorry, your file is too large.";
+if ($_FILES["fileToUpload"]["size"] > 500000  && $uploadOk == 1) {
+    $errors="Sorry, your file is too large.";
     $uploadOk = 0;
 }
 // Allow certain file formats
-if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
-    echo "Sorry, only JPG, JPEG, and PNG files are allowed.";
+if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"  && $uploadOk == 1) {
+    $errors="Sorry, only JPG, JPEG, and PNG files are allowed.";
     $uploadOk = 0;
 }
 
 
-$newfile = fopen(basename("uploads/" . pathinfo($target_file)['filename'] . "json", "w"));
+/* $newfile = fopen(basename("uploads/" . pathinfo($target_file)['filename'] . "json", "w"));
 $txt = "test test test test test test test test";
 fwrite($newfile, $txt);
-fclose($newfile);
+fclose($newfile); */
+/* HEY DOTHIS TRYEJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ*/
 
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
-    echo "Sorry, your file was not uploaded.";
+    $errors="Sorry, your file was not uploaded.";
 // if everything is ok, try to upload file
 } else {
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-        echo "Your submision has been Recieved";
+        $success = "Your submission has been recieved";
     } else {
-        echo "There was a problem with your submission, please try again.";
+        $errors="There was a problem with your submission, please try again.";
     }
 }
 ?>
@@ -86,7 +88,9 @@ if ($uploadOk == 0) {
 			<label for="desc">Description:</label><br>
 			<input type="text" id="desc" name="desc"><br><br>
 			<input type="submit" value="Upload Image" name="submit">
-		</form>
+        </form>
+        <h1><?php echo $success ?></h1>
+        <h1 color="red"><?php print_r($errors)?></h1>
 	</main>
 </body>
 </html>
