@@ -14,17 +14,17 @@ if(isset($_POST["submit"])) {
     }
 }
 // Check if file already exists
-if (file_exists($target_file)) {
+if (file_exists($target_file) && $uploadOk == 1) {
     $errors="Sorry, file already exists.";
     $uploadOk = 0;
 }
 // Check file size
-if ($_FILES["fileToUpload"]["size"] > 500000) {
+if ($_FILES["fileToUpload"]["size"] > 500000 && $uploadOk == 1) {
     $errors="Sorry, your file is too large.";
     $uploadOk = 0;
 }
 // Allow certain file formats
-if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
+if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $uploadOk == 1) {
     $errors="Sorry, only JPG, JPEG, and PNG files are allowed.";
     $uploadOk = 0;
 }
