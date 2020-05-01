@@ -87,7 +87,7 @@ if ($uploadOk == 0) {
 			<input type="text" id="desc" name="desc"><br><br>
 			<input type="submit" value="Upload Image" name="submit">
         </form>
-        <h1><?php if ($uploadOk ==1 ) {echo $success; } else { echo $errors;} ?></h1>
+        <h1><?php if(isset($_POST['submit'])){if ($uploadOk ==1 ) {echo $success; } else { echo $errors;}} ?></h1>
 	</main>
 </body>
 </html>
