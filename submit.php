@@ -13,21 +13,16 @@ if(isset($_POST["submit"])) {
         $errors[]="File is not an image.";
         $uploadOk = 0;
 	}
+	
+	//checks to see if each form field is filled out
+	foreach($_POST as &$val) {
+		if(($val == null || $val == "" ) && $uploadOk == 1) {
+			$errors[]="Please fill out the entire form.";
+			$uploadOk = 0;
+		}
+	}
 	//reading form data and creating a json object from it
-	if(isset($_POST["title"]) == false) {
-		$missing_title = " <- Please enter a title";
-	} else if (isset($_POST["artist"]) == false) {
-		$missing_artist = " <- Please enter an artist";
-	} else if (isset($_POST["date"]) == false) {
-		$missing_date = " <- Please enter a date";
-	} else if (isset($_POST["width"]) == false) {
-		$missing_width = " <- Please enter a width";
-	} else if (isset($_POST["height"]) == false) {
-		$missing_height = " <- Please enter a height";
-	} else if (isset($_POST["desc"]) == false) {
-		$missing_desc = " <- Please enter a description";
-		// once its determined there are no missing fields, create json file
-	} else {
+	if($uploadOk == 1) {
 		$newfile = "uploads/" . basename(pathinfo($target_file)['filename']) . ".json";
 		$handle = fopen($newfile, 'w') or die('Cannot open file:  '.$newfile);
 		$data = "{\"title\": \"".$_POST["title"]."\",\"artist\": \"".$_POST["artist"]."\",\"date\": \"".$_POST["date"]."\",\"width\": \"".$_POST["width"]."\",\"height\": \"".$_POST["height"]."\",\"description\": \"".$_POST["desc"]."\"}";
@@ -87,22 +82,22 @@ if ($uploadOk == 0) {
 		</nav> <!-- buttons -->
 
 	</header>
-    <main> <!-- to be auto-filled -->
+    <main>
         <h1 id="instruct">Submit your own art for manual review to be added to the site!</h1>
         <form action="" method="post" enctype="multipart/form-data">
 			<input type="file" name="fileToUpload" id="fileToUpload"><br><br>
 			<label for="title">Title:</label><br>
-			<input type="text" id="title" name="title"><span><?php echo $missing_title; ?></span><br>
+			<input type="text" id="title" name="title"><br>
 			<label for="artist">Artist:</label><br>
-			<input type="text" id="artist" name="artist"><span><?php echo $missing_artist; ?></span><br>
+			<input type="text" id="artist" name="artist"><br>
 			<label for="date">Date:</label><br>
-			<input type="text" id="date" name="date"><span><?php echo $missing_date; ?></span><br>
+			<input type="text" id="date" name="date"><br>
 			<label for="width">Width:</label><br>
-			<input type="text" id="width" name="width"><span><?php echo $missing_width; ?></span><br>
+			<input type="text" id="width" name="width"><br>
 			<label for="height">Height:</label><br>
-			<input type="text" id="height" name="height"><span><?php echo $missing_height; ?></span><br>
+			<input type="text" id="height" name="height"><br>
 			<label for="desc">Description:</label><br>
-			<input type="text" id="desc" name="desc"><br><span><?php echo $missing_desc; ?></span><br>
+			<input type="text" id="desc" name="desc"><br><br>
 			<input type="submit" value="Upload Image" name="submit">
         </form>
         <h1><?php if(isset($_POST['submit'])){if ($uploadOk ==1 ) {echo $success; } else { print_r($errors[0]);}} ?></h1>
