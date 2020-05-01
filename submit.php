@@ -29,7 +29,6 @@ if(isset($_POST["submit"])) {
 		// once its determined there are no missing fields, create json file
 	} else {
 		$newfile = "uploads/" . basename(pathinfo($target_file)['filename']) . ".json";
-		echo(basename(pathinfo($target_file)['filename']));
 		$handle = fopen($newfile, 'w') or die('Cannot open file:  '.$newfile);
 		$data = "{\"title\":".$_POST["title"].",\"artist\":".$_POST["artist"].",\"date\":".$_POST["date"].",\"width\":".$_POST["width"].",\"height\":".$_POST["height"].",\"description\":".$_POST["desc"].",}";
 		fwrite($handle, $data);
