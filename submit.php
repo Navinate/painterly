@@ -57,7 +57,7 @@ if (isset($_POST["submit"])) {
 	} else if (isset($_POST["desc"]) == false) {
 		$missing_desc = " <- Please enter a description";
 	} else {
-		$newfile = "uploads/" . basename(pathinfo($target_file)['filename']) . ".json";
+		$newfile = "uploads/test.json";// . basename(pathinfo($target_file)['filename']) . ".json";
 		echo($newfile);
 		$handle = fopen($newfile, 'w') or die('Cannot open file:  '.$newfile);
 		$data = "{\"title\":".$_POST["title"].",\"artist\":".$_POST["artist"].",\"date\":".$_POST["date"].",\"width\":".$_POST["width"].",\"height\":".$_POST["height"].",\"description\":".$_POST["desc"].",}";
