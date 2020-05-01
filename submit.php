@@ -30,7 +30,7 @@ if(isset($_POST["submit"])) {
 	} else {
 		$newfile = "uploads/" . basename(pathinfo($target_file)['filename']) . ".json";
 		$handle = fopen($newfile, 'w') or die('Cannot open file:  '.$newfile);
-		$data = "{\"title\":".$_POST["title"].",\"artist\":".$_POST["artist"].",\"date\":".$_POST["date"].",\"width\":".$_POST["width"].",\"height\":".$_POST["height"].",\"description\":".$_POST["desc"].",}";
+		$data = "{\"title\": \"".$_POST["title"]."\",\"artist\": \"".$_POST["artist"]."\",\"date\": \"".$_POST["date"]."\",\"width\": \"".$_POST["width"]."\",\"height\": \"".$_POST["height"]."\",\"description\": \"".$_POST["desc"]."\"}";
 		fwrite($handle, $data);
 	}
 }
