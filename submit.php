@@ -91,17 +91,17 @@ if ($uploadOk == 0) {
         <form action="" method="post" enctype="multipart/form-data">
 			<input type="file" name="fileToUpload" id="fileToUpload"><br><br>
 			<label for="title">Title:</label><br>
-			<input type="text" id="title" name="title"><span color="red"><?php echo $missing_title; ?></span><br>
+			<input type="text" id="title" name="title"><span><?php echo $missing_title; ?></span><br>
 			<label for="artist">Artist:</label><br>
-			<input type="text" id="artist" name="artist"><span color="red"><?php echo $missing_artist; ?></span><br>
+			<input type="text" id="artist" name="artist"><span><?php echo $missing_artist; ?></span><br>
 			<label for="date">Date:</label><br>
-			<input type="text" id="date" name="date"><span color="red"><?php echo $missing_date; ?></span><br>
+			<input type="text" id="date" name="date"><span><?php echo $missing_date; ?></span><br>
 			<label for="width">Width:</label><br>
-			<input type="text" id="width" name="width"><span color="red"><?php echo $missing_width; ?></span><br>
+			<input type="text" id="width" name="width"><span><?php echo $missing_width; ?></span><br>
 			<label for="height">Height:</label><br>
-			<input type="text" id="height" name="height"><span color="red"><?php echo $missing_height; ?></span><br>
+			<input type="text" id="height" name="height"><span><?php echo $missing_height; ?></span><br>
 			<label for="desc">Description:</label><br>
-			<input type="text" id="desc" name="desc"><br><span color="red"><?php echo $missing_desc; ?></span><br>
+			<input type="text" id="desc" name="desc"><br><span><?php echo $missing_desc; ?></span><br>
 			<input type="submit" value="Upload Image" name="submit">
         </form>
         <h1><?php if(isset($_POST['submit'])){if ($uploadOk ==1 ) {echo $success; } else { print_r($errors[0]);}} ?></h1>
