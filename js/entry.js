@@ -16,7 +16,9 @@
           var pair = vars[i].split("=");
           if (pair[0] == variable) {
               console.log("Loading data: " + pair[1]);
+              if (pair[1] <= 13) {
               fillInfo(pair[1]);
+              }
               return 1;
           }
       }
