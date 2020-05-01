@@ -49,7 +49,7 @@ li a:hover {
 	height: 8vmin;
 }
 
-.main {
+#gallery-main {
 	text-align: center;
 	font-size: 14px;
 	line-height: 20px;
