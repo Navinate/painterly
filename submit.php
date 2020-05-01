@@ -88,7 +88,7 @@ if ($uploadOk == 0) {
 
 	</header>
     <main> <!-- to be auto-filled -->
-        <h1>Submit your own art for manual review to be added to the site!</h1>
+        <h1 id="instruct">Submit your own art for manual review to be added to the site!</h1>
         <form action="" method="post" enctype="multipart/form-data">
 			<input type="file" name="fileToUpload" id="fileToUpload"><br><br>
 			<label for="title">Title:</label><br>

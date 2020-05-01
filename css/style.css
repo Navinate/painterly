@@ -99,9 +99,6 @@ div.info {
 	margin: 0;
 }
 
-h1 {
-	font-size: 8vmin;
-}
 
 form {
 	font-size: 4vmin;
@@ -110,8 +107,12 @@ form {
 
 .bio {
 	width: 50vw;
+	
 }
 @media only screen and (max-width: 600px) {
+	#instruct {
+		font-size: 8vmin;
+	}
 	.bio {
 	  width: 90vw;
 	  background-color: blue;
