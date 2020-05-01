@@ -98,11 +98,22 @@ div.info {
 	padding: 0;
 	margin: 0;
 }
+
+h1 {
+	font-size: 8vmin;
+}
+
+form {
+	font-size: 4vmin;
+	line-height: 5vmin;
+}
+
 .bio {
 	width: 50vw;
 }
 @media only screen and (max-width: 600px) {
 	.bio {
 	  width: 90vw;
+	  background-color: blue;
 	}
   }
