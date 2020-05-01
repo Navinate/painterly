@@ -28,7 +28,7 @@
                 console.log("Retrivial status: " + status);
                 info.innerHTML = "<h2>"+data.title+"</h2><p>By: "+data.artist+"</p>";
                 //adds alt tags to generated images
-                link.alt = data.description;
+                link.alt = ""+ data.description;
                 console.log(data);
             })
             link.appendChild(image);
